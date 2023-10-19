@@ -1,0 +1,30 @@
+__squash__
+- play around with the "drafts" script; e.g. try creating a flashlight that you can turn on/off by pressing a key on your controller
+
+- create a script that respawns the ball when you trigger a key on the controller by looking at the "drafts" script
+
+- play around with the physic material of the ball; what happens when you remove its gravity?
+
+- for now the ball is not blocked by our bodies; how can you change it ?
+
+__3Daudio__
+
+-add a teleportArea to the scene or multiple ones, or teleportAnchors
+- take the 3D-Audio-Source from >Prefabs and drop it anywhere in the scene. Select a sound that should be played and explore what "3D-audio" means
+- check out script Draft_2 (can be found in "AudioAction") for triggering audio from inputActions or stopping e.g. the "soundtrack-Audio"
+which is not playing for now, since playOnAwake is deactivated 
+
+- exchange the audio material; the one moving along with you can be found as a child of the XR origin > Camera
+
+__360-video__
+- check out the scene "360video-1"
+- can you assign a controller to play/pause the video?
+- can you write more functions for controlling the video? (see here for reference: https://docs.unity3d.com/ScriptReference/Video.VideoPlayer.html)
+
+
+____________________________
+general tip:
+- always make sure the XR-Device-Simulator is deactivated when you build your scene to the Headset
+
+
+
