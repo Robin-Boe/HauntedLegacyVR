@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class collectPaintings : MonoBehaviour
 {
+    // Items
     public GameObject Couple;
     public GameObject Woman;
     public GameObject Man;
@@ -27,7 +28,7 @@ public class collectPaintings : MonoBehaviour
     public GameObject CrystalActive;
 
     int count = 0;
-    Vector3 scaleChange = new Vector3(0,0,0);
+    //Vector3 scaleChange = new Vector3(0,0,0);
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +39,9 @@ public class collectPaintings : MonoBehaviour
     // Woman Paiting is Selected
     void womanPainting()
     {
-        // Changes Painting To 0 Scale
-        Woman.transform.localScale = scaleChange;
+        // Disables Painting
+        //Woman.transform.localScale = scaleChange;
+        Woman.SetActive(false);
 
         // Increases the Size for Update Counter
         count += 1;
@@ -51,8 +53,9 @@ public class collectPaintings : MonoBehaviour
     // Couple Paiting is Selected
     void coupleActive()
     {
-        // Changes Painting To 0 Scale
-        Couple.transform.localScale = scaleChange;
+        // Disables Painting
+        //Couple.transform.localScale = scaleChange;
+        Couple.SetActive(false);
 
         // Increases the Size for Update Counter
         count += 1;
@@ -64,8 +67,9 @@ public class collectPaintings : MonoBehaviour
     // Man Paiting is Selected
     void manActive()
     {
-        // Changes Painting To 0 Scale
-        Man.transform.localScale = scaleChange;
+        // Disables Painting
+        //Man.transform.localScale = scaleChange;
+        Man.SetActive(false);
 
         // Increases the Size for Update Counter
         count += 1;
@@ -77,8 +81,9 @@ public class collectPaintings : MonoBehaviour
     // Worker Paiting is Selected
     void workerActive()
     {
-        // Changes Painting To 0 Scale
-        Worker.transform.localScale = scaleChange;
+        // Disables Painting
+        //Worker.transform.localScale = scaleChange;
+        Worker.SetActive(false);
 
         // Increases the Size for Update Counter
         count += 1;
