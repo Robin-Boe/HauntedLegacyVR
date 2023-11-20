@@ -18,6 +18,7 @@ public class collectPaintings : MonoBehaviour
     public GameObject Two;
     public GameObject Three;
     public GameObject Four;
+    public GameObject KeyDisplay;
 
     // Check Actives
     public GameObject CoupleActive;
@@ -92,6 +93,19 @@ public class collectPaintings : MonoBehaviour
         WorkerActive.SetActive(false);
     }
 
+    // Key is Selected
+    void keyActive()
+    {
+        // Disables Key
+        Key.SetActive(false);
+
+        // Enables Key Display
+        KeyDisplay.SetActive(true);
+
+        // Disables Cube To Avoid Action Repating
+        KeyActive.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -113,6 +127,11 @@ public class collectPaintings : MonoBehaviour
         // Man Painting Collected
         if ((WorkerActive.activeSelf)){
             workerActive();
+        }
+
+        // Key Collected
+        if ((KeyActive.activeSelf)){
+            keyActive();
         }
 
         // Inventory Update Counter
