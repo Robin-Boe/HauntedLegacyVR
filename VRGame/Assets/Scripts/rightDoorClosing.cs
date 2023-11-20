@@ -9,6 +9,7 @@ public class rightDoorClosing : MonoBehaviour
 
     // Doors
     public Animator rightDoorAnim;
+    public BoxCollider rightDoorCollider;
     int doorCheck = 0;
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class rightDoorClosing : MonoBehaviour
     void doorClose()
     {
         rightDoorAnim.Play("doorClosingRight");
+        rightDoorCollider.enabled = true;
     }
 
     // Update is called once per frame
