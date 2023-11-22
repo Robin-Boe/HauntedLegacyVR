@@ -11,8 +11,18 @@ public class AIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        destination = GameObject.FindGameObjectWithTag("Destination");
-        agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(destination.transform.position);
+        //Start the coroutine we define below named ExampleCoroutine.
+        StartCoroutine(ExampleCoroutine());
+    }
+
+    IEnumerator ExampleCoroutine()
+    {
+        while (true)
+        {
+            destination = GameObject.FindGameObjectWithTag("MainCamera");
+            agent = GetComponent<NavMeshAgent>();
+            agent.SetDestination(destination.transform.position);
+            yield return new WaitForSeconds(1);
+        }
     }
 }
