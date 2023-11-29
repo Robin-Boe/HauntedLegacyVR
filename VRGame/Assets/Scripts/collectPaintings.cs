@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class collectPaintings : MonoBehaviour
 {
@@ -29,13 +30,9 @@ public class collectPaintings : MonoBehaviour
     public GameObject CrystalActive;
 
     int count = 0;
-    //Vector3 scaleChange = new Vector3(0,0,0);
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    // Text To Change in Collectables Menu
+    public TMP_Text collectablesText;
 
     // Woman Paiting is Selected
     void womanPainting()
@@ -135,21 +132,25 @@ public class collectPaintings : MonoBehaviour
         }
 
         // Inventory Update Counter
-        if ((count == 1) && (Zero.activeSelf)){
-            Zero.SetActive(false);
-            One.SetActive(true);
+        if ((count == 1)){
+            //Zero.SetActive(false);
+            //One.SetActive(true);
+            collectablesText.text = "(1 / 4)";
         }
-        else if ((count == 2) && (One.activeSelf)){
-            One.SetActive(false);
-            Two.SetActive(true);
+        else if ((count == 2)){
+            //One.SetActive(false);
+            //Two.SetActive(true);
+            collectablesText.text = "(2 / 4)";
         }
-        else if ((count == 3) && (Two.activeSelf)){
-            Two.SetActive(false);
-            Three.SetActive(true);
+        else if ((count == 3)){
+            //Two.SetActive(false);
+            //Three.SetActive(true);
+            collectablesText.text = "(3 / 4)";
         }
-        else if ((count == 4) && (Three.activeSelf)){
-            Three.SetActive(false);
-            Four.SetActive(true);
+        else if ((count == 4)){
+            //Three.SetActive(false);
+            //Four.SetActive(true);
+            collectablesText.text = "(4 / 4)";
         }
     }
 }
