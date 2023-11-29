@@ -29,7 +29,7 @@ public class rightDoorClosing : MonoBehaviour
     void Update()
     {       
         // If the player enters the mansion within certain positions than  
-        if ((Player.transform.position.x <= 2.896436f && Player.transform.position.x >= -3.542453f) && (Player.transform.position.y >= 1.0f && Player.transform.position.y <= 1.026535f) && (Player.transform.position.z <= -6.650888f && Player.transform.position.z >= -7.250888f) && (doorCheck == 0)){
+        if ((Player.transform.position.x <= 2.896436f && Player.transform.position.x >= -3.542453f) && (Player.transform.position.y >= 0 && Player.transform.position.y <= 2) && (Player.transform.position.z <= -6.650888f && Player.transform.position.z >= -7.250888f) && (doorCheck == 0)){
             doorCheck = 1;
             doorClose();
         }
