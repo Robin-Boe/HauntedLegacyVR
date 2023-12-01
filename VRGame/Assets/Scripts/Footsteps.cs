@@ -4,23 +4,39 @@ using UnityEngine;
 
 public class Footsteps : MonoBehaviour
 {
+    private CharacterController characterController;
+    private AudioSource audioSource;
 
-    CharacterController cc;
+    [SerializeField]
+    private float minVelocityForFootsteps = 2f;
+
+    [SerializeField]
+    private float minVolume = 0.8f;
+
+    [SerializeField]
+    private float maxVolume = 1f;
+
+    [SerializeField]
+    private float minPitch = 0.8f;
+
+    [SerializeField]
+    private float maxPitch = 1.1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        cc = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(cc.isGrounded == true && cc.velocity.magnitude > 2f && GetComponent<AudioSource>().isPlaying == false)
+        if (characterController.isGrounded && characterController.velocity.magnitude > minVelocityForFootsteps && !audioSource.isPlaying)
         {
-            GetComponent<AudioSource>().volume = Random.Range(0.8f, 1);
-            GetComponent<AudioSource>().pitch = Random.Range(0.8f, 1.1f);
-            GetComponent<AudioSource>().Play();
+            audioSource.volume = Random.Range(minVolume, maxVolume);
+            audioSource.pitch = Random.Range(minPitch, maxPitch);
+            audioSource.Play();
         }
     }
 }
