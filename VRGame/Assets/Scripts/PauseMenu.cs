@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -15,7 +16,18 @@ public class PauseMenu : MonoBehaviour
     public GameObject OptionsPage;
     public GameObject ObjectivesPage;   
     public GameObject CollectablesPage;   
-    
+    public GameObject DeathScreen;
+
+    // Scene Loader Bool
+    private bool scene_is_loading;
+
+    // Scene loader for Death Screen
+    public void LoadOtherScene(int index)
+    {
+        scene_is_loading = true;
+        SceneManager.LoadScene(index);
+    }
+
     // Start is called before the first frame update
     void Menu(InputAction.CallbackContext context)
     {
@@ -44,5 +56,7 @@ public class PauseMenu : MonoBehaviour
 
         CollectablesPage.transform.LookAt(new Vector3 (head.position.x, CollectablesPage.transform.position.y, head.position.z));
         CollectablesPage.transform.forward *= -1;
+
+        DeathScreen.transform.position = head.position - new Vector3(0,0,0.6f);  
     }
 }
