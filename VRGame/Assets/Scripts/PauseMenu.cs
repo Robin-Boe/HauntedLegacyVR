@@ -16,12 +16,16 @@ public class PauseMenu : MonoBehaviour
     public GameObject OptionsPage;
     public GameObject ObjectivesPage;   
     public GameObject CollectablesPage;   
-    public GameObject DeathScreen;
+
+    // Pause Count
+    public int count = 0;
+    public GameObject turn;
+    public GameObject move;
 
     // Scene Loader Bool
     private bool scene_is_loading;
 
-    // Scene loader for Death Screen
+    // Scene loader for Exit to Main Menu
     public void LoadOtherScene(int index)
     {
         scene_is_loading = true;
@@ -39,7 +43,21 @@ public class PauseMenu : MonoBehaviour
         // Puts the Menus in front of the player
         OptionsPage.transform.position = head.position + new Vector3(head.forward.x,0,head.forward.z).normalized / spawnDistance;
         ObjectivesPage.transform.position = head.position + new Vector3(head.forward.x,0,head.forward.z).normalized / spawnDistance;
-        CollectablesPage.transform.position = head.position + new Vector3(head.forward.x,0,head.forward.z).normalized / spawnDistance;   
+        CollectablesPage.transform.position = head.position + new Vector3(head.forward.x,0,head.forward.z).normalized / spawnDistance;
+
+        // Disables movement and turn on click, enables when clicked again
+        if (count == 0){
+            //Time.timeScale = 0;
+            turn.SetActive(false);
+            move.SetActive(false);
+            count = 1;
+        }
+        else if (count == 1){
+            //Time.timeScale = 1;
+            turn.SetActive(true);
+            move.SetActive(true);
+            count = 0;
+        }
     }
 
     // Update is called once per frame
@@ -56,7 +74,5 @@ public class PauseMenu : MonoBehaviour
 
         CollectablesPage.transform.LookAt(new Vector3 (head.position.x, CollectablesPage.transform.position.y, head.position.z));
         CollectablesPage.transform.forward *= -1;
-
-        DeathScreen.transform.position = head.position - new Vector3(0,0,0.6f);  
     }
 }
