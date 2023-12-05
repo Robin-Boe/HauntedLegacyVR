@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Footsteps : MonoBehaviour
 {
-    private CharacterController cc;
+    private Camera mainCamera;
     private AudioSource audioSource;
 
     [SerializeField]
@@ -30,14 +30,14 @@ public class Footsteps : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cc = GetComponent<CharacterController>();
+        mainCamera = Camera.main;
         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cc.isGrounded && cc.velocity.magnitude > minVelocityForFootsteps && !audioSource.isPlaying)
+        if (mainCamera.velocity.magnitude > minVelocityForFootsteps && !audioSource.isPlaying)
         {
             if (Time.time - lastFootstepTime > cooldown)
             {
