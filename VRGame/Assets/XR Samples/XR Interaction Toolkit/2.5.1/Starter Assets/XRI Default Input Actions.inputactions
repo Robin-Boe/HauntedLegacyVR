@@ -2628,6 +2628,140 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Move",
+            "id": "50165320-7126-45ac-a8d1-936126f2ca34",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "bce25402-52ca-410b-9ecd-5a0954b88edc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "626fa1fe-9d86-4a11-9c9f-96aa6fd8d1e2",
+                    "path": "<XRController>{LeftHand}/menuButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Turn",
+            "id": "27139b90-b650-49d1-9dc2-566f24da2040",
+            "actions": [
+                {
+                    "name": "Turn",
+                    "type": "Value",
+                    "id": "73f3be77-8381-4844-b389-8b9db7c8349b",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "96dbc315-ed15-49cb-92fc-b7003eab09e1",
+                    "path": "<XRController>{RightHand}/{Secondary2DAxisTouch}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Turn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Grab",
+            "id": "50f9e7ad-9239-4fd8-bc08-312a54f7d6fe",
+            "actions": [
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "a10d2de3-917d-4df6-a743-31d1da03d27b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "258cbb04-83f0-476b-b628-f6419f13e6f4",
+                    "path": "<XRController>{LeftHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd7e5d22-47c0-42f4-8eb3-5cc381fe0adb",
+                    "path": "<XRController>{RightHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "128b5460-b51e-4fdd-ac75-39cb7d67c393",
+            "actions": [
+                {
+                    "name": "UI",
+                    "type": "Button",
+                    "id": "059c887d-3fe1-4d2e-984e-fde0515c7dd7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4a84e673-b623-4544-ba3d-44992cbed586",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "UI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db3ea9a9-b1b5-4519-b0b5-d011b46e4505",
+                    "path": "<XRController>{RightHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "UI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

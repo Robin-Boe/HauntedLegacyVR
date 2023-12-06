@@ -13,7 +13,7 @@ public class rightDoorClosing : MonoBehaviour
     int doorCheck = 0;
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         rightDoorAnim = GetComponent<Animator>();
     }
@@ -23,15 +23,18 @@ public class rightDoorClosing : MonoBehaviour
     {
         rightDoorAnim.Play("doorClosingRight");
         rightDoorCollider.enabled = true;
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
-    {       
+    {
+        if (transform.rotation.y == 1){
+            rightDoorCollider.enabled = true;
+        }       
         // If the player enters the mansion within certain positions than  
-        if ((Player.transform.position.x <= 2.896436f && Player.transform.position.x >= -3.542453f) && (Player.transform.position.y >= 0 && Player.transform.position.y <= 2) && (Player.transform.position.z <= -6.650888f && Player.transform.position.z >= -7.250888f) && (doorCheck == 0)){
+        /*if ((Player.transform.position.x <= 2.896436f && Player.transform.position.x >= -3.542453f) && (Player.transform.position.y >= 0 && Player.transform.position.y <= 2) && (Player.transform.position.z <= -6.5f && Player.transform.position.z >= -9.0f) && (doorCheck == 0)){
             doorCheck = 1;
             doorClose();
-        }
+        }*/
     }
 }

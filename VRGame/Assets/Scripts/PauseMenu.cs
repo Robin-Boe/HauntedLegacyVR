@@ -32,6 +32,15 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
+    public void ExitMenu(){
+        // Enable Movement
+        turn.SetActive(true);
+        move.SetActive(true);
+        count = 0;
+
+        MenuPage.SetActive(false);
+    }
+
     // Start is called before the first frame update
     void Menu(InputAction.CallbackContext context)
     {
