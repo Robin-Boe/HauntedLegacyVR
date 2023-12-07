@@ -20,15 +20,18 @@ public class TutorialScript : MonoBehaviour
     public AudioSource bucketAudio;
     public AudioClip windBucket;
     private int audioCheck = 0;
-    private float grabTimer = 18.0f;
-    private float grabTimer2 = 23.0f;
+    private float grabTimer = 14.0f;
+    private float grabTimer2 = 20.0f;
 
-    // Turn Notification
+    // Menu Notification
     public InputActionReference menuButton = null;
     public GameObject menuNotification;
     public GameObject narration;
     public GameObject narrationIcon;
     private float narrationTimer = 52.0f;
+    private float backupTimer = 52.0f;
+    public GameObject check;
+    private int checkNumber = 1;
 
     // UI Notification
     public InputActionReference uiButton = null;
@@ -67,9 +70,12 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // --- GRAB ---
         if ((countControl == 0) && (countControlGrab == 1)){
+            // Reduce the time with 1 second per frame
             grabTimer -= Time.deltaTime;
             grabTimer2 -= Time.deltaTime;
+            // IF the timer is 0 or below and the bucket (which is ungrabbable) is currently active
             if ((grabTimer <= 0.0f) && (bucket.activeSelf)){
                 if (audioCheck == 0) {
                     bucketAudio.PlayOneShot(windBucket);
@@ -78,20 +84,38 @@ public class TutorialScript : MonoBehaviour
                 bucket.GetComponent<Animator>().enabled = true;
                 Invoke("Bucket", 5);
             }
+            // IF the second timer is 0 or below set the notification to active and check for input
             if (grabTimer2 <= 0.0f){
                 grabNotification.SetActive(true);
                 grabButton.action.started += Grab;
             }
-        }  
-        else if ((countControl == 1) && (countControlMenu == 1)){
+        }
+
+        // --- MENU ---
+        // In case the player starts the narration before they have gone through the grab notification
+        if ((check.activeSelf) && (backupTimer >= -5.0f)){
+            backupTimer -= Time.deltaTime;
+        }
+
+        // Menu Notification: If grab notification is complete OR the player entered the threshold  
+        if (((countControl == 1) && (countControlMenu == 1)) || ((check.activeSelf) && (checkNumber == 1))){
+            // If the player entered the threshold, change the checkNumber so it doesen't repeat each time the player enters
+            if (check.activeSelf){
+                 check.SetActive(false);
+                 checkNumber = 0;
+            }
+            // Enables the narration and menu notification which is animated to start at certain times
             menuNotification.SetActive(true);
             narration.SetActive(true);
             narrationIcon.SetActive(true);
+
             narrationTimer -= Time.deltaTime;
-            if (narrationTimer <= 0){
+            if ((narrationTimer <= 0) || (backupTimer <= 0)){
                 menuButton.action.started += Menu;
             }
         }
+        // --- UI Menu ---  
+        // Shows up directly after the player clicks the menu button
         else if ((countControl == 2) && (countControlUI == 1)){
             uiNotification.SetActive(true);
             uiButton.action.started += UI;
