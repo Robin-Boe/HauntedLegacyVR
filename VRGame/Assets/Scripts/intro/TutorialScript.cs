@@ -28,6 +28,7 @@ public class TutorialScript : MonoBehaviour
     public GameObject menuNotification;
     public GameObject narration;
     public GameObject narrationIcon;
+    public GameObject objectiveNotification;
     public GameObject fade;
     private float narrationTimer = 52.0f;
     private float backupTimer = 52.0f;
@@ -109,6 +110,7 @@ public class TutorialScript : MonoBehaviour
             menuNotification.SetActive(true);
             narration.SetActive(true);
             narrationIcon.SetActive(true);
+            objectiveNotification.SetActive(true);
             fade.SetActive(true);
 
             narrationTimer -= Time.deltaTime;

@@ -19,6 +19,16 @@ public class doorClosingSequence : MonoBehaviour
     public AudioSource closeDoor;
     public AudioClip windClose;
 
+    // Objectives
+    public GameObject enterMansionNotComplete;
+    public GameObject enterMansionComplete;
+    public GameObject find4Paintings;
+
+    // Function that sets the notification to active
+    void fourPaintings(){
+        find4Paintings.SetActive(true);
+    }
+
     void doorClose()
     {
         // Audio
@@ -31,6 +41,12 @@ public class doorClosingSequence : MonoBehaviour
         // Rightdoor
         rightDoorAnim.Play("doorClosingRight");
         rightDoorCollider.enabled = true;
+
+        enterMansionNotComplete.SetActive(false);
+        enterMansionComplete.SetActive(true);
+
+        // To avoid both the completed notficiation and new notification to overlap, a 5 second pause is added to activate the new objective
+        Invoke("fourPaintings", 5);
     }
 
     // Start is called before the first frame update
