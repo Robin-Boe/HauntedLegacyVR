@@ -23,6 +23,8 @@ public class doorClosingSequence : MonoBehaviour
     public GameObject enterMansionNotComplete;
     public GameObject enterMansionComplete;
     public GameObject find4Paintings;
+    public GameObject enterTheMansionCompleteIcon;
+    public GameObject collectfourPaintingsObjective;
 
     // Function that sets the notification to active
     void fourPaintings(){
@@ -44,6 +46,8 @@ public class doorClosingSequence : MonoBehaviour
 
         enterMansionNotComplete.SetActive(false);
         enterMansionComplete.SetActive(true);
+        enterTheMansionCompleteIcon.SetActive(true);
+        collectfourPaintingsObjective.SetActive(true);
 
         // To avoid both the completed notficiation and new notification to overlap, a 5 second pause is added to activate the new objective
         Invoke("fourPaintings", 5);

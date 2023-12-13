@@ -11,7 +11,6 @@ public class collectPaintings : MonoBehaviour
     public GameObject Man;
     public GameObject Worker;
     public GameObject Key;
-    public GameObject Crystal;
 
     // Counters
     public GameObject Zero;
@@ -26,7 +25,9 @@ public class collectPaintings : MonoBehaviour
     public GameObject ManActive;
     public GameObject WorkerActive;
     public GameObject KeyActive;
-    public GameObject CrystalActive;
+
+    // Objectives
+    public GameObject fourPaintingsObjectiveIcon;
 
     int count = 0;
     
@@ -147,6 +148,7 @@ public class collectPaintings : MonoBehaviour
             //Three.SetActive(false);
             //Four.SetActive(true);
             collectablesText.text = "(4 / 4)";
+            fourPaintingsObjectiveIcon.SetActive(true);
         }
     }
 }

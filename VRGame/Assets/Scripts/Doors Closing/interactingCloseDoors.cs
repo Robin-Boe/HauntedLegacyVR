@@ -11,7 +11,20 @@ public class interactingCloseDoors : MonoBehaviour
     public AudioSource player;
     public AudioClip playerTalking;
     public GameObject subtitle;
+
+    // Objectives
+    public GameObject newExitNotification;
+    public GameObject findANewExitObjective;
     
+    public GameObject doorObjectiveList;
+    public GameObject keyObjectiveList;
+    private int paintingsCheck = 1;
+
+    // Function that sets the notification to active
+    void newExit(){
+        newExitNotification.SetActive(true);
+        paintingsCheck = 0;
+    }
 
     // Function that is ran when interacting with the closed door
     public void CheckNarration(){
@@ -19,6 +32,11 @@ public class interactingCloseDoors : MonoBehaviour
             player.PlayOneShot(playerTalking);
             subtitle.SetActive(true);
             timer = 5.0f;
+            // To avoid the subtitle and notification to overlap
+            if ((paintingsCheck == 1) && ((!doorObjectiveList.activeSelf) && (!keyObjectiveList.activeSelf))){
+                findANewExitObjective.SetActive(true);
+                Invoke("newExit", 4);
+            }
         }
     }
 

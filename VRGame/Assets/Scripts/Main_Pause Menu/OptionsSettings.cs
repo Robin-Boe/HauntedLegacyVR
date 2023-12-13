@@ -17,6 +17,9 @@ public class OptionsSettings : MonoBehaviour
     // Gets the tunnel gameobject
     public GameObject Tunnel;
 
+    // Gets Subtitle Gameobject
+    public GameObject Subtitle;
+
     public void LoadOtherScene(int index)
     {
         scene_is_loading = true;
@@ -47,6 +50,16 @@ public class OptionsSettings : MonoBehaviour
 
         else if (index == 1){
             Tunnel.SetActive(false);
+        }
+    }
+
+    public void SetTypeSubtitleIndex(int index){
+        if (index == 0){
+            Subtitle.SetActive(true);
+        }
+
+        else if (index == 1){
+            Subtitle.SetActive(false);
         }
     }
 }

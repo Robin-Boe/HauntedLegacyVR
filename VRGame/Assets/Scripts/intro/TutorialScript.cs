@@ -34,6 +34,7 @@ public class TutorialScript : MonoBehaviour
     private float backupTimer = 52.0f;
     public GameObject check;
     private int checkNumber = 1;
+    private int objectiveNumber = 1;
 
     // UI Notification
     public InputActionReference uiButton = null;
@@ -110,9 +111,15 @@ public class TutorialScript : MonoBehaviour
             menuNotification.SetActive(true);
             narration.SetActive(true);
             narrationIcon.SetActive(true);
-            objectiveNotification.SetActive(true);
             fade.SetActive(true);
 
+            // Only activate once, so it dosen't reactivate if the player walks into the mansion before the narration is complete (which would result in the player getting "objective complete" before "new objective" of "entering the mansion")
+            if (objectiveNumber == 1){
+                objectiveNotification.SetActive(true);
+                objectiveNumber = 0;
+            }
+
+            // If either timer hits 0, register whenever the player hits the menu button, and run the function "Menu"
             narrationTimer -= Time.deltaTime;
             if ((narrationTimer <= 0) || (backupTimer <= 0)){
                 menuButton.action.started += Menu;
