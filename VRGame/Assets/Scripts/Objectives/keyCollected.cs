@@ -16,12 +16,18 @@ public class keyCollected : MonoBehaviour
     // Update is called once per frame
     public void KeyNotification()
     {
+        // IF door has not been interacted with
         if (!doorObjectiveList.activeSelf){
+            // Set notification (find door) to active
             keyNotificationPopup.SetActive(true);
+            // Set objective (find door) to active
             keyObjectiveList.SetActive(true);
         }
+        // IF the door has been interacted with
         else if (doorObjectiveList.activeSelf){
+            // Set find key objective (checkmark) to active
             findKeyObjectiveCompleteIcon.SetActive(true);
+            // Set objective notification (find key) to active
             findKeyObjectiveComplete.SetActive(true);
         }
     }
