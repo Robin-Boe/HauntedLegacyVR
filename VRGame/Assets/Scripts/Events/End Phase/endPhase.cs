@@ -13,6 +13,9 @@ public class endPhase : MonoBehaviour
     // Monsters
     public GameObject ghoul;
     public GameObject yokai;
+    public GameObject blinking;
+    public GameObject message;
+    public GameObject chiefDialog;
 
     // Timer
     private float timer = 40;
@@ -29,6 +32,9 @@ public class endPhase : MonoBehaviour
         if ((!mrPainting.activeSelf) && (!mrsPainting.activeSelf) && (!workerPainting.activeSelf) && (!couplePainting.activeSelf)){
             timer -= Time.deltaTime;
             if (timer <= 0.0f){
+                blinking.SetActive(true);
+                chiefDialog.SetActive(true);
+                message.SetActive(true);
                 ghoul.SetActive(true);
                 yokai.SetActive(true);
             }

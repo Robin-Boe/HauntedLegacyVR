@@ -16,6 +16,15 @@ public class doorInteract : MonoBehaviour
     public GameObject findDoorObjectiveComplete;
     public GameObject findDoorObjectiveCompleteIcon;
 
+    // Unlock Door Objects
+    public GameObject Key;
+    public GameObject leftDoorObject;
+    public GameObject rightDoorObject;
+    public AudioSource leftDoor;
+    public AudioSource rightDoor;
+    public AudioClip doorUnlock;
+    public AudioClip doorLock;
+
     public void DoorNotification()
     {
         // IF key has not been interacted with and Find Exit is active
@@ -55,6 +64,24 @@ public class doorInteract : MonoBehaviour
             findDoorObjectiveCompleteIcon.SetActive(true);
             // Set the find door notification to active
             findDoorObjectiveComplete.SetActive(true);
+        }
+    }
+
+    public void DoorUnlock(int index)
+    {
+        if ((!Key.activeSelf) && (index == 0)){
+            leftDoor.PlayOneShot(doorUnlock);
+            leftDoorObject.GetComponent<Animator>().enabled = true;
+        }
+        else if ((!Key.activeSelf) && (index == 1)){
+            rightDoor.PlayOneShot(doorUnlock);
+            rightDoorObject.GetComponent<Animator>().enabled = true;
+        }
+        else if ((Key.activeSelf) && (index == 0)){
+            leftDoor.PlayOneShot(doorLock);
+        }
+        else if ((Key.activeSelf) && (index == 1)){
+            rightDoor.PlayOneShot(doorLock);
         }
     }
 }

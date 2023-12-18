@@ -19,6 +19,9 @@ public class doorClosingSequence : MonoBehaviour
     public AudioSource closeDoor;
     public AudioClip windClose;
 
+    // Audio Ghost
+    public GameObject ghostAudio;
+
     // Objectives
     public GameObject enterMansionNotComplete;
     public GameObject enterMansionComplete;
@@ -29,6 +32,10 @@ public class doorClosingSequence : MonoBehaviour
     // Function that sets the notification to active
     void fourPaintings(){
         find4Paintings.SetActive(true);
+    }
+
+    void ghostTalking(){
+        ghostAudio.SetActive(true);
     }
 
     void doorClose()
@@ -51,6 +58,7 @@ public class doorClosingSequence : MonoBehaviour
 
         // To avoid both the completed notficiation and new notification to overlap, a 5 second pause is added to activate the new objective
         Invoke("fourPaintings", 5);
+        Invoke("ghostTalking", 2);
     }
 
     // Start is called before the first frame update
