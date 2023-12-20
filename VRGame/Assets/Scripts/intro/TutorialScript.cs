@@ -20,21 +20,13 @@ public class TutorialScript : MonoBehaviour
     public AudioSource bucketAudio;
     public AudioClip windBucket;
     private int audioCheck = 0;
-    private float grabTimer = 14.0f;
-    private float grabTimer2 = 20.0f;
+    private float grabTimer = 25.0f;
+    private float grabTimer2 = 31.0f;
 
     // Menu Notification
     public InputActionReference menuButton = null;
     public GameObject menuNotification;
-    public GameObject narration;
-    public GameObject narrationIcon;
-    public GameObject objectiveNotification;
-    public GameObject fade;
     private float narrationTimer = 52.0f;
-    private float backupTimer = 52.0f;
-    public GameObject check;
-    private int checkNumber = 1;
-    private int objectiveNumber = 1;
 
     // UI Notification
     public InputActionReference uiButton = null;
@@ -73,6 +65,11 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Timer only reduces untill a certain threshold to save capcaity
+        if (narrationTimer >= -3.0f){
+            narrationTimer -= Time.deltaTime;
+        }
+        
         // --- GRAB ---
         if ((countControl == 0) && (countControlGrab == 1)){
             // Reduce the time with 1 second per frame
@@ -92,39 +89,22 @@ public class TutorialScript : MonoBehaviour
                 grabNotification.SetActive(true);
                 grabButton.action.started += Grab;
             }
+            if ((narrationTimer <= 2)){
+                grabNotification.SetActive(false);
+                countControlGrab = 0;
+                countControl = 1;
+            }
         }
 
         // --- MENU ---
-        // In case the player starts the narration before they have gone through the grab notification
-        if ((check.activeSelf) && (backupTimer >= -5.0f)){
-            backupTimer -= Time.deltaTime;
-        }
-
-        // Menu Notification: If grab notification is complete OR the player entered the threshold  
-        if (((countControl == 1) && (countControlMenu == 1)) || ((check.activeSelf) && (checkNumber == 1))){
-            // If the player entered the threshold, change the checkNumber so it doesen't repeat each time the player enters
-            if (check.activeSelf){
-                 check.SetActive(false);
-                 checkNumber = 0;
-            }
-            // Enables the narration and menu notification which is animated to start at certain times
-            menuNotification.SetActive(true);
-            narration.SetActive(true);
-            narrationIcon.SetActive(true);
-            fade.SetActive(true);
-
-            // Only activate once, so it dosen't reactivate if the player walks into the mansion before the narration is complete (which would result in the player getting "objective complete" before "new objective" of "entering the mansion")
-            if (objectiveNumber == 1){
-                objectiveNotification.SetActive(true);
-                objectiveNumber = 0;
-            }
-
-            // If either timer hits 0, register whenever the player hits the menu button, and run the function "Menu"
-            narrationTimer -= Time.deltaTime;
-            if ((narrationTimer <= 0) || (backupTimer <= 0)){
+        // Menu Notification: If grab notification is complete
+        if (((countControl == 1) && (countControlMenu == 1))){
+            // If the timer hits 0, register whenever the player hits the menu button, and run the function "Menu"
+            if ((narrationTimer <= 0)){
                 menuButton.action.started += Menu;
             }
         }
+
         // --- UI Menu ---  
         // Shows up directly after the player clicks the menu button
         else if ((countControl == 2) && (countControlUI == 1)){

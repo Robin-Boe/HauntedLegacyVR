@@ -22,6 +22,9 @@ public class doorClosingSequence : MonoBehaviour
     // Audio Ghost
     public GameObject ghostAudio;
 
+    // Car
+    public GameObject car;
+
     // Objectives
     public GameObject enterMansionNotComplete;
     public GameObject enterMansionComplete;
@@ -51,6 +54,10 @@ public class doorClosingSequence : MonoBehaviour
         rightDoorAnim.Play("doorClosingRight");
         rightDoorCollider.enabled = true;
 
+        // Car disable
+        car.SetActive(false);
+
+        // Objectives
         enterMansionNotComplete.SetActive(false);
         enterMansionComplete.SetActive(true);
         enterTheMansionCompleteIcon.SetActive(true);
