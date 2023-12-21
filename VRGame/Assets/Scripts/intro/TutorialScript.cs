@@ -91,6 +91,7 @@ public class TutorialScript : MonoBehaviour
             }
             if ((narrationTimer <= 2)){
                 grabNotification.SetActive(false);
+                grabNotificationAni.SetActive(true);
                 countControlGrab = 0;
                 countControl = 1;
             }

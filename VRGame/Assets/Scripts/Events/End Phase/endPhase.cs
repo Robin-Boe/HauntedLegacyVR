@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class endPhase : MonoBehaviour
 {
@@ -17,8 +18,13 @@ public class endPhase : MonoBehaviour
     public GameObject message;
     public GameObject chiefDialog;
 
+    // Subtitle
+    public GameObject chiefText;
+    public TMP_Text dialogText;
+
     // Timer
-    private float timer = 40;
+    private float timer = 40.0f;
+    private float timerSubtitle = 7.0f;
 
     // Notifications
     public GameObject fourPaintingsNotificationComplete;
@@ -37,6 +43,28 @@ public class endPhase : MonoBehaviour
                 message.SetActive(true);
                 ghoul.SetActive(true);
                 yokai.SetActive(true);
+
+                timerSubtitle -= Time.deltaTime;
+
+                // Subtitle
+                if (timerSubtitle <= 0.0f){
+                    chiefText.SetActive(false);
+                }
+                else if (timerSubtitle <= 0.3f){ 
+                    dialogText.text = @"<b>CHIEF:</b> NOW!";
+                }
+                else if (timerSubtitle <= 1.2f){ 
+                    dialogText.text = @"";
+                }
+                else if (timerSubtitle <= 2.0f){ 
+                    dialogText.text = @"<b>CHIEF:</b> YOU NEED TO GET...";
+                }
+                else if (timerSubtitle <= 4.0f){ 
+                    dialogText.text = @"";
+                }
+                else if (timerSubtitle <= 7.0f){
+                    chiefText.SetActive(true);
+                }
             }
             else if (timer <= 8.0f){
                 fourPaintingsNotificationComplete.SetActive(true);

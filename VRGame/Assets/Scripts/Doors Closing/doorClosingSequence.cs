@@ -21,6 +21,7 @@ public class doorClosingSequence : MonoBehaviour
 
     // Audio Ghost
     public GameObject ghostAudio;
+    public GameObject ghostSubtitle;
 
     // Car
     public GameObject car;
@@ -38,6 +39,7 @@ public class doorClosingSequence : MonoBehaviour
     }
 
     void ghostTalking(){
+        ghostSubtitle.SetActive(true);
         ghostAudio.SetActive(true);
     }
 
