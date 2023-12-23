@@ -14,9 +14,10 @@ public class PauseMenu : MonoBehaviour
     // Menu Imports
     public GameObject MenuPage;
     public GameObject OptionsPage;
+    public GameObject AreYouSure; 
     public GameObject ObjectivesPage;   
-    public GameObject CollectablesPage;   
-
+    public GameObject CollectablesPage;
+      
     // Pause Count
     public int count = 0;
     public GameObject turn;
@@ -51,6 +52,7 @@ public class PauseMenu : MonoBehaviour
 
         // Puts the Menus in front of the player
         OptionsPage.transform.position = head.position + new Vector3(head.forward.x,0,head.forward.z).normalized / spawnDistance;
+        AreYouSure.transform.position = head.position + new Vector3(head.forward.x,0,head.forward.z).normalized / spawnDistance;
         ObjectivesPage.transform.position = head.position + new Vector3(head.forward.x,0,head.forward.z).normalized / spawnDistance;
         CollectablesPage.transform.position = head.position + new Vector3(head.forward.x,0,head.forward.z).normalized / spawnDistance;
 
@@ -77,6 +79,9 @@ public class PauseMenu : MonoBehaviour
         // Changes the menu (one for each page) so they face the player at all times
         OptionsPage.transform.LookAt(new Vector3 (head.position.x, OptionsPage.transform.position.y, head.position.z));
         OptionsPage.transform.forward *= -1;
+
+        AreYouSure.transform.LookAt(new Vector3 (head.position.x, AreYouSure.transform.position.y, head.position.z));
+        AreYouSure.transform.forward *= -1;
 
         ObjectivesPage.transform.LookAt(new Vector3 (head.position.x, ObjectivesPage.transform.position.y, head.position.z));
         ObjectivesPage.transform.forward *= -1;
