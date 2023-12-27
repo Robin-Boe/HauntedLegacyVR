@@ -66,10 +66,19 @@ public class TutorialScript : MonoBehaviour
     void Update()
     {
         // Timer only reduces untill a certain threshold to save capcaity
-        if (narrationTimer >= -3.0f){
+        if (narrationTimer >= -50.0f){
             narrationTimer -= Time.deltaTime;
         }
         
+        if(narrationTimer <= -35.0f){
+            uiNotification.SetActive(false);
+            uiNotificationAni.SetActive(true);
+        }
+        else if (narrationTimer <= -25.0f){
+            menuNotification.SetActive(false);
+        }
+        
+
         // --- GRAB ---
         if ((countControl == 0) && (countControlGrab == 1)){
             // Reduce the time with 1 second per frame

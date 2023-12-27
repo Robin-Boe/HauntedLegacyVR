@@ -73,20 +73,9 @@ public class doorClosingSequence : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter (Collider other)
     {
-        if (doorCheck == 0){
+        if ((other.gameObject.name == "XR Origin (XR Rig)") && (doorCheck == 0)){
             doorClose();
             doorCheck = 1;
         }
     }
-
-    // Update is called once per frame
-    /*void OnTriggerStay (Collider other)
-    {
-        Debug.Log("Stay");
-    }*/
-    
-    /*void OnTriggerExit (Collider other)
-    {
-        Debug.Log("Leave");
-    }*/
 }
