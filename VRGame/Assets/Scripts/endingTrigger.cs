@@ -6,9 +6,17 @@ public class EndingTrigger : MonoBehaviour
     public GameObject Woman;
     public GameObject Man;
     public GameObject Worker;
+    public GameObject Key;
     public GameObject Dirt;
 
-    void CheckObjectStatus()
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         if (AllObjectsAreActive())
         {
