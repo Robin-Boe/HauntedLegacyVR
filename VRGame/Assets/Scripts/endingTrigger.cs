@@ -6,8 +6,8 @@ public class EndingTrigger : MonoBehaviour
     public GameObject Woman;
     public GameObject Man;
     public GameObject Worker;
-    public GameObject Key;
     public GameObject Dirt;
+    public GameObject Emily;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +22,13 @@ public class EndingTrigger : MonoBehaviour
         {
             Debug.Log("All game objects are active!");
             Dirt.SetActive(false);
+            Emily.SetActive(false);
         }
         else if (AllObjectsAreInactive())
         {
             Debug.Log("All game objects are inactive!");
             Dirt.SetActive(true);
+            Emily.SetActive(true);
         }
     }
 
