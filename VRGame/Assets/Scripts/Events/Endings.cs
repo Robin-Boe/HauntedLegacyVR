@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Endings : MonoBehaviour
 {
@@ -23,10 +26,41 @@ public class Endings : MonoBehaviour
     // Fire
     public GameObject fire;
 
+    // Fade
+    public GameObject fade;
+
+    // Objective
+    public GameObject leavePropertyCheckMark;
+    public GameObject leavePropertyNotification;
+
+    // Box Texts
+    public Text leftText;
+    public Text rightText;
+    public Text middleText;
+
     // NPC
     public GameObject Emily;
     public GameObject Ghoul;
     public GameObject Yokai;
+
+    // 0 Paintings Collected Objects
+    private float ZeroPaintingsTimer = 10;
+    public GameObject enteredMansion;
+    public GameObject dialog0Paintings;
+    public GameObject dialog0PaintingsText;
+    public TMP_Text dialogText0Paintings;
+
+    // Load to Main Menu
+    void LoadOtherScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    // Fade OUT
+    void Fade()
+    {
+        fade.SetActive(true);
+    }
 
     // Grab Notification (Called when button pressed)
     void Grab(InputAction.CallbackContext context){
@@ -37,13 +71,41 @@ public class Endings : MonoBehaviour
         else if ((burnPaiting.activeSelf) && (countGrab == 1)){
             burnPaiting.SetActive(false);
             countGrab = 2;
+
+            // Objectives
+            leavePropertyCheckMark.SetActive(true);
+            leavePropertyNotification.SetActive(true);
+        }
+    }
+
+    // When the player enters the threshold
+    void OnTriggerEnter (Collider other)
+    {
+        // If the player has not collected any paintings but goes to the gate
+        if ((AllObjectsAreActive()) && (enteredMansion.activeSelf)){
+            //Audio
+            dialog0Paintings.SetActive(true);
+            dialog0PaintingsText.SetActive(true);
+
+            //Fade & Scene Loader
+            Invoke("Fade", 3);
+            Invoke("LoadOtherScene", 9);
         }
     }
 
     // When the player stays within the box collider
     void OnTriggerStay (Collider other)
     {
+        // If the player has all the paintings and gotton to the gate
         if ((AllObjectsAreInactive()) && (other.gameObject.name == "XR Origin (XR Rig)")){
+            // Change box text (if player tries to keep walking beyond the designated area
+            leftText.text = @"Keep your focus on the mission!
+    Burn the Paintings!";
+            rightText.text = @"Keep your focus on the mission!
+    Burn the Paintings!";
+            middleText.text = @"Keep your focus on the mission!
+    Burn the Paintings!";
+
             // Place paintings interaction
             if (countGrab == 0){
                 dirtGlow.SetActive(true);
@@ -65,6 +127,22 @@ public class Endings : MonoBehaviour
             Emily.SetActive(false);
             Ghoul.SetActive(false);
             Yokai.SetActive(false);
+        }
+        else if (dialog0Paintings.activeSelf){
+            ZeroPaintingsTimer -= Time.deltaTime;
+
+            if (ZeroPaintingsTimer <= 1.0f){
+                dialog0PaintingsText.SetActive(false);
+            }
+            else if (ZeroPaintingsTimer <= 4.5f){
+                dialogText0Paintings.text = @"<b>PLAYER:</b> Done...";
+            }
+            else if (ZeroPaintingsTimer <= 5.8f){
+                dialogText0Paintings.text = @"<b>PLAYER:</b> I'm just...";
+            }
+            else if (ZeroPaintingsTimer <= 8.0f){
+                dialogText0Paintings.text = @"<b>PLAYER:</b> I have had enough excitement for my lifetime.";
+            }
         }
     }
 
