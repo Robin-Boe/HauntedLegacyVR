@@ -50,10 +50,19 @@ public class Endings : MonoBehaviour
     public GameObject dialog0PaintingsText;
     public TMP_Text dialogText0Paintings;
 
+    // 1 - 3 Paintings Collected
+    public GameObject dialogOneOrMorePaintings;
+    public GameObject dialogOneOrMorePaintingsSubtitle;
+
     // Load to Main Menu
     void LoadOtherScene()
     {
         SceneManager.LoadScene(0);
+    }
+
+    void LoadOtherSceneOffice()
+    {
+        SceneManager.LoadScene(4);
     }
 
     // Fade OUT
@@ -90,6 +99,13 @@ public class Endings : MonoBehaviour
             //Fade & Scene Loader
             Invoke("Fade", 3);
             Invoke("LoadOtherScene", 9);
+        }
+        else if ((!AllObjectsAreInactive()) && (!Couple.activeSelf || !Woman.activeSelf || !Man.activeSelf || !Worker.activeSelf)){
+            dialogOneOrMorePaintings.SetActive(true);
+            dialogOneOrMorePaintingsSubtitle.SetActive(true);
+            
+            Invoke("Fade", 3);
+            Invoke("LoadOtherSceneOffice", 9);
         }
     }
 
