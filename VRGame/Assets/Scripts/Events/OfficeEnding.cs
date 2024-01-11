@@ -44,7 +44,7 @@ public class OfficeEnding : MonoBehaviour
     // Load to Main Menu
     void LoadOtherScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(6);
     }
 
     // When the player enters the threshold
