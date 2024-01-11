@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Office.unity
     guid: d9eb7eebf9147b74fa366d07c4a16d05
+  - enabled: 1
+    path: Assets/Scenes/AllPaintingsEndScreen.unity
+    guid: d11f2972115da1441b5b70ba62f7f01f
+  - enabled: 1
+    path: Assets/Scenes/OfficeEndScreen.unity
+    guid: 629448cffa1fe6a4b801dad415eb581b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bd5ceebd8582f1a4e9504dfcd66f39dc, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7a0f6a1d508a4374e9e66cf445d11c62, type: 2}
