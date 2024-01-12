@@ -41,8 +41,8 @@ public class PaintingDialoguePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int activePaintingsCount = CountActivePaintings();
-        Debug.Log("Active paintings count: " + activePaintingsCount);
+        // int activePaintingsCount = CountActivePaintings();
+        // Debug.Log("Active paintings count: " + activePaintingsCount);
 
         if (!womanPainting.activeSelf && manPainting.activeSelf && !womanAudioPlayed1)
         {
@@ -73,7 +73,7 @@ public class PaintingDialoguePlayer : MonoBehaviour
             manAudioPlayed2 = true;
         }
     }
-
+/*
     // Method to count the active paintings
     int CountActivePaintings()
     {
@@ -93,7 +93,7 @@ public class PaintingDialoguePlayer : MonoBehaviour
 
         return count;
     }
-
+*/
     void PlayCoupleWorkerAudio()
     {
         Debug.Log("play couple worker audio");
