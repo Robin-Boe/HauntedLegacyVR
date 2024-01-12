@@ -51,7 +51,7 @@ public class PaintingDialoguePlayer : MonoBehaviour
             Invoke("PlayMrsGrapeFirstAudio", 4f);
             womanAudioPlayed1 = true;
         }
-        else if (!womanPainting.activeSelf && !manPainting.activeSelf && !womanAudioPlayed2)
+        else if (!womanPainting.activeSelf && !manPainting.activeSelf && !womanAudioPlayed2 && manAudioPlayed1 && !manAudioPlayed2)
         {
             Debug.Log("Second woman painting is active.");
             PlayWomanAudio();
@@ -65,11 +65,11 @@ public class PaintingDialoguePlayer : MonoBehaviour
             Invoke("PlayMrGrapeFirstAudio", 4f);
             manAudioPlayed1 = true;
         }
-        else if (!manPainting.activeSelf && !womanPainting.activeSelf && !manAudioPlayed2)
+        else if (!manPainting.activeSelf && !womanPainting.activeSelf && !manAudioPlayed2 && womanAudioPlayed1 && !womanAudioPlayed2)
         {
             Debug.Log("Second man painting is active.");
-            // PlayManAudio();
-            Invoke("PlayMrGrapeSecondtAudio", 4f);
+            PlayManAudio();
+            Invoke("PlayMrGrapeSecondAudio", 4f);
             manAudioPlayed2 = true;
         }
     }
@@ -139,8 +139,4 @@ public class PaintingDialoguePlayer : MonoBehaviour
         mrsGrapeSecondSubtitle.SetActive(true);
     }
 
-    void DeactivateGameObject()
-    {
-        self.SetActive(false);
-    }
 }
