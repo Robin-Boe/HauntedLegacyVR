@@ -19,6 +19,12 @@ public class PaintingDialoguePlayer : MonoBehaviour
     public AudioClip mrsGrapeSecondAudio;
     public AudioClip mrGrapeSecondAudio;
 
+    // Subtitles
+    public GameObject mrGrapeFirstSubtitle;
+    public GameObject mrGrapeSecondSubtitle;
+    public GameObject mrsGrapeFirstSubtitle;
+    public GameObject mrsGrapeSecondSubtitle;
+
     public GameObject self;
 
     private bool womanAudioPlayed1 = false;
@@ -109,24 +115,28 @@ public class PaintingDialoguePlayer : MonoBehaviour
     {
         Debug.Log("play mrs grape first audio");
         audioSource.PlayOneShot(mrsGrapeFirstAudio);
+        mrsGrapeFirstSubtitle.SetActive(true);
     }
 
     void PlayMrGrapeFirstAudio()
     {
         Debug.Log("play mr grape first audio");
         audioSource.PlayOneShot(mrGrapeFirstAudio);
+        mrGrapeFirstSubtitle.SetActive(true);
     }
 
     void PlayMrsGrapeSecondAudio()
     {
         Debug.Log("play mrs grape second audio");
         audioSource.PlayOneShot(mrsGrapeSecondAudio);
+        mrsGrapeSecondSubtitle.SetActive(true);
     }
 
     void PlayMrGrapeSecondAudio()
     {
         Debug.Log("play mr grape second audio");
         audioSource.PlayOneShot(mrGrapeSecondAudio);
+        mrsGrapeSecondSubtitle.SetActive(true);
     }
 
     void DeactivateGameObject()
