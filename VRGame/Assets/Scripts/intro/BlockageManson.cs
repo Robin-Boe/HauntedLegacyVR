@@ -8,6 +8,9 @@ public class BlockageManson : MonoBehaviour
     public GameObject panel;
     public GameObject wall;
 
+    // Flashlight
+    public GameObject flashlightNotifiction;
+
     // Player
     public GameObject player;
 
@@ -42,6 +45,7 @@ public class BlockageManson : MonoBehaviour
         if (timer <= 0.0f){
             panel.SetActive(false);
             wall.SetActive(false);
+            flashlightNotifiction.SetActive(true);
         }
 
         // Move the panel according to the player's x position

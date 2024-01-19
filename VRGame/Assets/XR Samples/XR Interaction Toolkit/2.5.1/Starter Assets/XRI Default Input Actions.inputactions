@@ -2762,6 +2762,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Flashlight",
+            "id": "4a46c86e-e524-44dc-a90f-95cbc200da42",
+            "actions": [
+                {
+                    "name": "Flashlight",
+                    "type": "Button",
+                    "id": "6e95f339-dc52-4a31-8c7b-c77cfec8beaa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4abd6aaa-8618-498a-a61a-0620d4e42599",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Flashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
