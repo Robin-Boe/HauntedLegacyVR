@@ -32,6 +32,9 @@ public class endPhase : MonoBehaviour
     public GameObject leavePropertyNotification;
     public GameObject leavePropertyObjectiveList;
 
+    // Check
+    public GameObject checkIfPaintingsBurned;
+
     // Update is called once per frame
     void Update()
     {
@@ -41,8 +44,10 @@ public class endPhase : MonoBehaviour
                 blinking.SetActive(true);
                 chiefDialog.SetActive(true);
                 message.SetActive(true);
-                ghoul.SetActive(true);
-                yokai.SetActive(true);
+                if (!checkIfPaintingsBurned.activeSelf){
+                    ghoul.SetActive(true);
+                    yokai.SetActive(true);
+                }
 
                 timerSubtitle -= Time.deltaTime;
 
