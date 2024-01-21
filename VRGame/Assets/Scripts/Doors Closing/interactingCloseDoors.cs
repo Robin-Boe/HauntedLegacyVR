@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class interactingCloseDoors : MonoBehaviour
 {
-    // Timer so player doesen't "spam click it"
+    // Timer so player doesn't "spam click it" and check to avoid it being triggered multiple times
     private float timer = 5.0f;
+    private int paintingsCheck = 1;
 
     // Audio and subtitles
     public AudioSource player;
@@ -18,7 +19,8 @@ public class interactingCloseDoors : MonoBehaviour
     
     public GameObject doorObjectiveList;
     public GameObject keyObjectiveList;
-    private int paintingsCheck = 1;
+    public GameObject keyObjectiveComplete;
+    
 
     // Function that sets the notification to active
     void newExit(){
@@ -32,10 +34,15 @@ public class interactingCloseDoors : MonoBehaviour
             player.PlayOneShot(playerTalking);
             subtitle.SetActive(true);
             timer = 5.0f;
-            // To avoid the subtitle and notification to overlap
-            if ((paintingsCheck == 1) && ((!doorObjectiveList.activeSelf) && (!keyObjectiveList.activeSelf))){
+            // To check if the basement door or key has been interacted with, Invoked with 4 seconds to avoid overlap with narration if the player interacts with immediatly
+            if (((paintingsCheck == 1) && (!keyObjectiveList.activeSelf)) && ((!doorObjectiveList.activeSelf) || (!keyObjectiveComplete.activeSelf))){
                 findANewExitObjective.SetActive(true);
                 Invoke("newExit", 4);
+            }
+            // IF key interacted with (but not basement door) and player interacts with front door
+            else if ((paintingsCheck == 1) && (keyObjectiveList.activeSelf)){
+                findANewExitObjective.SetActive(true);
+                newExit();
             }
         }
     }

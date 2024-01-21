@@ -8,7 +8,8 @@ public class OfficeEnding : MonoBehaviour
 {
     // XR & Locomotion
     public GameObject head;
-    public GameObject locomotion;
+    public GameObject move;
+    public GameObject grab;
 
     // NPCS
     public GameObject ghost;
@@ -53,8 +54,12 @@ public class OfficeEnding : MonoBehaviour
         // To start sequence in Update
         timerCheck = 1;
 
+        // Disable Moveing & Grabing
+        move.SetActive(false);
+        grab.SetActive(false);
+
+        // Enable player dialog and subtitle
         playerDialog.SetActive(true);
-        locomotion.SetActive(false);
         subtitle.SetActive(true);
 
     }
