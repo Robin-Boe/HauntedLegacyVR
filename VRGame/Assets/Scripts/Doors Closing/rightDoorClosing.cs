@@ -12,6 +12,9 @@ public class rightDoorClosing : MonoBehaviour
     public BoxCollider rightDoorCollider;
     int doorCheck = 0;
 
+    // Check
+    public GameObject checkIfPlayer;
+
     // Start is called before the first frame update
     /*void Start()
     {
@@ -28,8 +31,11 @@ public class rightDoorClosing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.rotation.y == 1){
+        if (checkIfPlayer.activeSelf){
             rightDoorCollider.enabled = true;
+        }
+        else{
+            rightDoorCollider.enabled = false;
         }       
         // If the player enters the mansion within certain positions than  
         /*if ((Player.transform.position.x <= 2.896436f && Player.transform.position.x >= -3.542453f) && (Player.transform.position.y >= 0 && Player.transform.position.y <= 2) && (Player.transform.position.z <= -6.5f && Player.transform.position.z >= -9.0f) && (doorCheck == 0)){

@@ -14,13 +14,10 @@ public class Endings : MonoBehaviour
     public GameObject Man;
     public GameObject Worker;
 
-    // Grab Detection
-    public InputActionReference grabButton = null;
-    private int countGrab = 0;
+    public GameObject paintingPlaced;
 
     // Hints, Glows & Notifications
     public GameObject placePaiting;
-    public GameObject burnPaiting;
     public GameObject dirtGlow;
 
     // Fire
@@ -28,10 +25,6 @@ public class Endings : MonoBehaviour
 
     // Fade
     public GameObject fade;
-
-    // Objective
-    public GameObject leavePropertyCheckMark;
-    public GameObject leavePropertyNotification;
 
     // Box Texts
     public Text leftText;
@@ -71,22 +64,6 @@ public class Endings : MonoBehaviour
         fade.SetActive(true);
     }
 
-    // Grab Notification (Called when button pressed)
-    void Grab(InputAction.CallbackContext context){
-        if ((placePaiting.activeSelf) && (countGrab == 0)){
-            placePaiting.SetActive(false);
-            countGrab = 1;
-        }
-        else if ((burnPaiting.activeSelf) && (countGrab == 1)){
-            burnPaiting.SetActive(false);
-            countGrab = 2;
-
-            // Objectives
-            leavePropertyCheckMark.SetActive(true);
-            leavePropertyNotification.SetActive(true);
-        }
-    }
-
     // When the player enters the threshold
     void OnTriggerEnter (Collider other)
     {
@@ -123,15 +100,10 @@ public class Endings : MonoBehaviour
     Burn the Paintings!";
 
             // Place paintings interaction
-            if (countGrab == 0){
+            if (paintingPlaced.activeSelf){
                 dirtGlow.SetActive(true);
                 placePaiting.SetActive(true);
-                grabButton.action.started += Grab;
-            }
-            // Set them ablaze interaction
-            else if (countGrab == 1){
-                burnPaiting.SetActive(true);
-                grabButton.action.started += Grab;
+                
             }
         }
     }
@@ -144,6 +116,7 @@ public class Endings : MonoBehaviour
             Ghoul.SetActive(false);
             Yokai.SetActive(false);
         }
+        // No paintings collected ending
         else if (dialog0Paintings.activeSelf){
             ZeroPaintingsTimer -= Time.deltaTime;
 

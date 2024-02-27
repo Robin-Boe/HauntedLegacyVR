@@ -6,14 +6,13 @@ public class doorClosingSequence : MonoBehaviour
 {
     // Check
     private int doorCheck = 0;
+    public GameObject checkIfPlayer;
 
     // Right Door
     public Animator rightDoorAnim;
-    public BoxCollider rightDoorCollider;
 
     // Left Door
     public Animator leftDoorAnim;
-    public BoxCollider leftDoorCollider;
 
     // Audio
     public AudioSource closeDoor;
@@ -50,11 +49,9 @@ public class doorClosingSequence : MonoBehaviour
 
         // Leftdoor
         leftDoorAnim.Play("doorClosingLeft");
-        leftDoorCollider.enabled = true;
 
         // Rightdoor
         rightDoorAnim.Play("doorClosingRight");
-        rightDoorCollider.enabled = true;
 
         // Car disable
         car.SetActive(false);
@@ -77,5 +74,19 @@ public class doorClosingSequence : MonoBehaviour
             doorClose();
             doorCheck = 1;
         }
+
+        // If player enters, set check to true
+        if (other.gameObject.name == "XR Origin (XR Rig)"){
+            checkIfPlayer.SetActive(true);
+        }
+        
+    }
+
+    void OnTriggerExit (Collider other)
+    {
+        // If player exits, set check to false, to deactivate door selection from outside
+        if (other.gameObject.name == "XR Origin (XR Rig)"){
+            checkIfPlayer.SetActive(false);
+        }        
     }
 }
