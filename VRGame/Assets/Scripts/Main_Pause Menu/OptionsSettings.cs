@@ -20,12 +20,23 @@ public class OptionsSettings : MonoBehaviour
     // Gets Subtitle Gameobject
     public GameObject Subtitle;
 
+    // Gets material used for glow and asigns colors
+    public Material glowMaterial;
+    public Color blue;
+    public Color green;
+    public Color red;
+    public Color purple;
+    public Color white;
+    public Color black;
+
+    // Load another scene function
     public void LoadOtherScene(int index)
     {
         scene_is_loading = true;
         SceneManager.LoadScene(index);
     }
 
+    // Changes the type of turning the player has from 45 increments to continous turn (or vice versa)
     public void SetTypeFromTurnIndex(int index){
         //Enables smooth turning
         if (index == 0){
@@ -53,6 +64,7 @@ public class OptionsSettings : MonoBehaviour
         }
     }
 
+    // Toggles on / off subtitles
     public void SetTypeSubtitleIndex(int index){
         if (index == 0){
             Subtitle.SetActive(true);
@@ -60,6 +72,29 @@ public class OptionsSettings : MonoBehaviour
 
         else if (index == 1){
             Subtitle.SetActive(false);
+        }
+    }
+
+    // Change the highlight color
+    public void ChangeColor(int index)
+    {
+        if (index == 0){
+            glowMaterial.color = blue;
+        }
+        else if (index == 1){
+            glowMaterial.color = green;
+        }
+        else if (index == 2){
+            glowMaterial.color = red;
+        }
+        else if (index == 3){
+            glowMaterial.color = purple;
+        }
+        else if (index == 4){
+            glowMaterial.color = white;
+        }
+        else if (index == 5){
+            glowMaterial.color = black;
         }
     }
 }
