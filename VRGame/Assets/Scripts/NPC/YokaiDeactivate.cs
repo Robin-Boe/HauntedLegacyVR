@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class YokaiDeactivate : MonoBehaviour
 {
     // DIfferent timers (floats) and bool to check different conditions
-    private float chaseTimer = 30.0f;
+    private float chaseTimer = 60.0f;
     private float eyeClosingEffectTimer = 5.0f;
     private bool scene_is_loading;
 
@@ -27,7 +27,7 @@ public class YokaiDeactivate : MonoBehaviour
 
     void Update()
     {
-        // Timer of 30 seconds, which each frame reduces by 1 i.e. 30 second timer
+        // Timer of 1 minute, which each frame reduces by 1 i.e. 30 second timer
         chaseTimer -= Time.deltaTime;
         
         // If the player has touched the NPC
