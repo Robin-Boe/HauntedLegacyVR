@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class YokaiDeactivate : MonoBehaviour
 {
     // DIfferent timers (floats) and bool to check different conditions
-    private float chaseTimer = 60.0f;
+    private float chaseTimer = 45.0f;
     private float eyeClosingEffectTimer = 5.0f;
     private bool scene_is_loading;
 
@@ -15,6 +15,9 @@ public class YokaiDeactivate : MonoBehaviour
     public GameObject rightController;
     public GameObject locomotion;
     public GameObject eyeClosingEffect;
+
+    // Gets the parent of all collectible objects
+    public GameObject allObjects;
 
     // IF player touches the NPC's box collider
     void OnTriggerEnter (Collider other)
@@ -27,7 +30,7 @@ public class YokaiDeactivate : MonoBehaviour
 
     void Update()
     {
-        // Timer of 1 minute, which each frame reduces by 1 i.e. 30 second timer
+        // Timer of 45 seconds, which each frame reduces by 1
         chaseTimer -= Time.deltaTime;
         
         // If the player has touched the NPC
@@ -47,8 +50,13 @@ public class YokaiDeactivate : MonoBehaviour
             }
         }
         // If the player has not been touched within 30 seconds, set NPC to inactive
-        else if (chaseTimer <= 0.0f){
+        if (chaseTimer <= 0.0f){
             gameObject.SetActive(false);
+            allObjects.SetActive(true);
+        }
+        // Disables narrative objects, to avoid the player collecting multiple during a chase
+        else if (chaseTimer >= 0.1f){
+            allObjects.SetActive(false);
         }
     }
 }
