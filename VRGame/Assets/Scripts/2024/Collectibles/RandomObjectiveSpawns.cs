@@ -176,58 +176,58 @@ public class RandomObjectiveSpawns : MonoBehaviour
     {
         if (index == 0){
             if (monster == "Ghoul"){
-                ghoul.transform.position = new Vector3(-8.493f, 3.31f, -12.927f);
+                ghoul.transform.localPosition = new Vector3(-8.493f, 3.31f, -12.927f);
             }
             else if (monster == "Yokai"){
-                yokai.transform.position = new Vector3(3.497f, -1.189f, -14.722f);
+                yokai.transform.localPosition = new Vector3(3.497f, -1.189f, -14.722f);
             }
         }
         else if (index == 1){
             if (monster == "Ghoul"){
-                ghoul.transform.position = new Vector3(-5.197f, -1.179f, -11.847f);
+                ghoul.transform.localPosition = new Vector3(-5.197f, -1.179f, -11.847f);
             }
             else if (monster == "Yokai"){
-                yokai.transform.position = new Vector3(13.711f, -1.189f, -3.864f);
+                yokai.transform.localPosition = new Vector3(13.711f, -1.189f, -3.864f);
             }
         }
         else if (index == 2){
             if (monster == "Ghoul"){
-                ghoul.transform.position = new Vector3(10.921f, -1.179f, -12.45f);
+                ghoul.transform.localPosition = new Vector3(10.921f, -1.179f, -12.45f);
             }
             else if (monster == "Yokai"){
-                yokai.transform.position = new Vector3(7.175f, -3.709f, -6.75f);
+                yokai.transform.localPosition = new Vector3(7.175f, -3.709f, -6.75f);
             }
         }
         else if (index == 3){
             if (monster == "Ghoul"){
-                ghoul.transform.position = new Vector3(10.138f, -3.69f, -4.517f);
+                ghoul.transform.localPosition = new Vector3(10.138f, -3.69f, -4.517f);
             }
             else if (monster == "Yokai"){
-                yokai.transform.position = new Vector3(-6.269f, -3.709f, -11.023f);
+                yokai.transform.localPosition = new Vector3(-6.269f, -3.709f, -11.023f);
             }
         }
         else if (index == 4){
             if (monster == "Ghoul"){
-                ghoul.transform.position = new Vector3(0.772f, -3.69f, -1.27f);
+                ghoul.transform.localPosition = new Vector3(0.772f, -3.69f, -1.27f);
             }
             else if (monster == "Yokai"){
-                yokai.transform.position = new Vector3(-0.988f, 3.358f, -14.236f);
+                yokai.transform.localPosition = new Vector3(-0.988f, 3.358f, -14.236f);
             }
         }
         else if (index == 5){
             if (monster == "Ghoul"){
-                ghoul.transform.position = new Vector3(-1.737f, -3.69f, -15.807f);
+                ghoul.transform.localPosition = new Vector3(-1.737f, -3.69f, -15.807f);
             }
             else if (monster == "Yokai"){
-                yokai.transform.position = new Vector3(-7.621f, 3.358f, -0.76f);
+                yokai.transform.localPosition = new Vector3(-7.621f, 3.358f, -0.76f);
             }
         }
         else if (index == 6){
             if (monster == "Ghoul"){
-                ghoul.transform.position = new Vector3(3.55f, -7.186f, -9.557f);
+                ghoul.transform.localPosition = new Vector3(3.55f, -7.186f, -9.557f);
             }
             else if (monster == "Yokai"){
-                yokai.transform.position = new Vector3(1.017f, 1.809f, -8.933f);
+                yokai.transform.localPosition = new Vector3(1.017f, 1.809f, -8.933f);
             }
         }
         // If index == 7, keep the original position in editor (i.e. no change)

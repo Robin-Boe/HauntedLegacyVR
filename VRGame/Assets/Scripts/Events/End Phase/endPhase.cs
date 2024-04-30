@@ -11,11 +11,14 @@ public class endPhase : MonoBehaviour
     public GameObject workerPainting;
     public GameObject couplePainting;
 
+    // Painting Monsters
+    public GameObject paintingGhoul;
+    public GameObject paintingYokai;
+
     // Monsters
     public GameObject ghoul;
     public GameObject yokai;
     public GameObject blinking;
-    public GameObject message;
     public GameObject chiefDialog;
 
     // Subtitle
@@ -23,7 +26,7 @@ public class endPhase : MonoBehaviour
     public TMP_Text dialogText;
 
     // Timer
-    private float timer = 40.0f;
+    private float timer = 30.0f;
     private float timerSubtitle = 7.0f;
 
     // Notifications
@@ -39,12 +42,26 @@ public class endPhase : MonoBehaviour
     void Update()
     {
         if ((!mrPainting.activeSelf) && (!mrsPainting.activeSelf) && (!workerPainting.activeSelf) && (!couplePainting.activeSelf)){
-            timer -= Time.deltaTime;
+            if ((!paintingGhoul.activeSelf) && (!paintingYokai.activeSelf)){
+                timer -= Time.deltaTime;
+            }
+            else if ((paintingGhoul.activeSelf) || (paintingYokai.activeSelf)){
+                timer = 0.0f;
+            }
+            
             if (timer <= 0.0f){
+                // Objectives
+                fourPaintingsNotificationComplete.SetActive(true);
+                fourPaintingsIconComplete.SetActive(true);
+                leavePropertyNotification.SetActive(true);
+                leavePropertyObjectiveList.SetActive(true);
+
                 blinking.SetActive(true);
                 chiefDialog.SetActive(true);
-                message.SetActive(true);
-                if (!checkIfPaintingsBurned.activeSelf){
+                // If the player collects the man or woman painting, disable that chase, and active the other chase
+                paintingGhoul.SetActive(false);
+                paintingYokai.SetActive(false);
+                if ((!checkIfPaintingsBurned.activeSelf) && (timerSubtitle <= 4.0f)){
                     ghoul.SetActive(true);
                     yokai.SetActive(true);
                 }
@@ -70,13 +87,7 @@ public class endPhase : MonoBehaviour
                 else if (timerSubtitle <= 7.0f){
                     chiefText.SetActive(true);
                 }
-            }
-            else if (timer <= 8.0f){
-                fourPaintingsNotificationComplete.SetActive(true);
-                fourPaintingsIconComplete.SetActive(true);
-                leavePropertyNotification.SetActive(true);
-                leavePropertyObjectiveList.SetActive(true);
-            }      
+            }    
         }
     }
 }
