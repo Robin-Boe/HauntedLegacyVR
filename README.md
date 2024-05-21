@@ -8,7 +8,7 @@ The game is created within Unity, using the Unity 2022.3.10f1 version. You need 
 
 ## Project Viewing
 
-You can view and download the project independetly from the Unity project. Go to the following link https://robin-boe.github.io/HauntedLegacy/ to view information about the game.
+You can view and download the project independetly from the Unity project. Go to the following link https://robin-boe.github.io/HauntedLegacy/
 
 ## Launch the game
 
