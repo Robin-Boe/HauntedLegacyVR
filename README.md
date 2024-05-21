@@ -16,5 +16,5 @@ You need follow these steps:
 * Create a Meta Account and enable developer mode
 * Download the Meta Quest Developer Hub on Mac / Windows
 * Connect your quest to your computer and allow files within the headset
-* Drop the build file you built through Unity or downloaded through the website below
-* Launch the game from developer hub 
+* Drop the build file you built through Unity or downloaded through the website above into the developer hub
+* Launch the game from developer hub (whilst still connected)
