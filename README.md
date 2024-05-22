@@ -1,6 +1,6 @@
 # Haunted Legacy VR Game
 
-Haunted Legacy is a virtual reality horror-adventure game for the Meta Quest headsets (i.e., Quest 1, 2, 3 and Pro). 
+Haunted Legacy is a virtual reality horror-adventure game for the Meta Quest headsets (i.e., Quest 1, 2, 3 and Pro). The game should ideally be played sitting down, to recieve the best experience.
 
 ## Project Viewing
 
