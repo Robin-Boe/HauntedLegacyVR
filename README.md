@@ -2,7 +2,7 @@
 
 Haunted Legacy is a virtual reality horror-adventure game for the Meta Quest headsets (i.e., Quest 1, 2, 3 and Pro). The game should ideally be played sitting down, to recieve the best experience.
 
-## Project Viewing
+## Project Details
 
 The game is created within Unity, using the Unity 2022.3.10f1 version. You need to download that version of Unity to view and open the project, without errors. Within the project, you can view code files, and other files which controls the game. To test the game, you need to bulid the project in Android.
 
